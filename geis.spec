@@ -4,16 +4,19 @@
 #
 Summary:	An implementation of the GEIS (Gesture Engine Interface and Support) interface
 Name:		geis
-Version:	2.2.16
-Release:	2
+Version:	2.2.17
+Release:	1
 License:	GPL v3/LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/geis/trunk/%{version}/+download/%{name}-%{version}.tar.xz
-# Source0-md5:	f70af0887a5585539406d8737b231b5e
+# Source0-md5:	2ff9d76a3ea5794516bb02c9d1924faf
 URL:		https://launchpad.net/geis
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	dbus-devel >= 1.2.16
 BuildRequires:	frame-devel >= 2.2
 BuildRequires:	grail-devel >= 3.0.8
+BuildRequires:	libtool
 BuildRequires:	libxcb-devel >= 1.6
 BuildRequires:	python3-devel
 BuildRequires:	python3-modules
@@ -95,7 +98,13 @@ Narzędzie do przeglądania działania GEIS API.
 %prep
 %setup -q
 
+sed -i -e 's#-pedantic##g' configure.ac
+
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	%{!?with_static_libs:--disable-static}
 %{__make} V=1
@@ -123,7 +132,6 @@ rm -rf $RPM_BUILD_ROOT
 %files tools
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/geistest
-%attr(755,root,root) %{_bindir}/geis-server
 %attr(755,root,root) %{_bindir}/pygeis
 %{_mandir}/man1/pygeis.1*
 %{_mandir}/man1/geistest.1*
@@ -144,6 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{py3_sitedir}/_geis_bindings.so
 %dir %{py3_sitescriptdir}/geis
+%{py3_sitescriptdir}/geis/__pycache__
 %{py3_sitescriptdir}/geis/__init__.py*
 %{py3_sitescriptdir}/geis/geis_v2.py*
 
@@ -151,6 +160,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/geisview
 %dir %{py3_sitescriptdir}/geisview
+%{py3_sitescriptdir}/geisview/__pycache__
 %{py3_sitescriptdir}/geisview/*.py*
 %{_desktopdir}/geisview.desktop
 %dir %{_datadir}/geisview
