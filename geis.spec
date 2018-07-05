@@ -5,11 +5,12 @@
 Summary:	An implementation of the GEIS (Gesture Engine Interface and Support) interface
 Name:		geis
 Version:	2.2.17
-Release:	5
+Release:	6
 License:	GPL v3/LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/geis/trunk/%{version}/+download/%{name}-%{version}.tar.xz
 # Source0-md5:	2ff9d76a3ea5794516bb02c9d1924faf
+Patch0:		build.patch
 URL:		https://launchpad.net/geis
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -97,6 +98,7 @@ Narzędzie do przeglądania działania GEIS API.
 
 %prep
 %setup -q
+%patch0 -p1
 
 sed -i -e 's#-pedantic##g' configure.ac
 
