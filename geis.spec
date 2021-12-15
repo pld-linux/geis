@@ -21,7 +21,7 @@ BuildRequires:	libtool
 BuildRequires:	libxcb-devel >= 1.6
 BuildRequires:	python3-devel
 BuildRequires:	python3-modules
-BuildRequires:	python3-setuptools > 7.0
+BuildRequires:	python3-setuptools > 1:7.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXext-devel
