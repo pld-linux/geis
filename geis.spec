@@ -1,8 +1,9 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static libraries
+%bcond_without	static_libs	# static libraries
 #
 Summary:	An implementation of the GEIS (Gesture Engine Interface and Support) interface
+Summary(pl.UTF-8):	Implementacja interfejsu GEIS (Gesture Engine Interface and Support)
 Name:		geis
 Version:	2.2.17
 Release:	9
@@ -34,10 +35,14 @@ GEIS is a library for applications and toolkit programmers which
 provides a consistent platform independent interface for any
 system-wide input gesture recognition mechanism.
 
+%description -l pl.UTF-8
+GEIS to biblioteka dla programistów aplikacji i toolkitów,
+zapewniająca spójny, niezależny od platformy interfejs do wszystkich
+systemowych mechanizmów rozpoznawania gestów.
+
 %package tools
 Summary:	Test tools for geis library
 Summary(pl.UTF-8):	Testowe narzędzia biblioteki geis
-Summary(pl.UTF-8):	Wspólne pliki biblioteki geis
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -72,17 +77,17 @@ Static geis library.
 Statyczna biblioteka geis.
 
 %package -n python3-geis
-Summary:	Python3 bindings for geis library
-Summary(pl.UTF-8):	Wiązania python3 dla biblioteki geis
+Summary:	Python 3 bindings for geis library
+Summary(pl.UTF-8):	Wiązania Pythona 3 do biblioteki geis
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
 Requires:	python3-modules
 
 %description -n python3-geis
-Python3 bindings for geis library.
+Python 3 bindings for geis library.
 
 %description -n python3-geis -l pl.UTF-8
-Wiązania python3 dla biblioteki geis.
+Wiązania Pythona 3 do biblioteki geis.
 
 %package -n geisview
 Summary:	A tool to view operation of the GEIS API
@@ -152,7 +157,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n python3-geis
 %defattr(644,root,root,755)
-%{py3_sitedir}/_geis_bindings.so
+%attr(755,root,root) %{py3_sitedir}/_geis_bindings.so
 %dir %{py3_sitescriptdir}/geis
 %{py3_sitescriptdir}/geis/__pycache__
 %{py3_sitescriptdir}/geis/__init__.py*
