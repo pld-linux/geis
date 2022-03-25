@@ -6,7 +6,7 @@ Summary:	An implementation of the GEIS (Gesture Engine Interface and Support) in
 Summary(pl.UTF-8):	Implementacja interfejsu GEIS (Gesture Engine Interface and Support)
 Name:		geis
 Version:	2.2.17
-Release:	9
+Release:	10
 License:	GPL v3/LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/geis/trunk/%{version}/+download/%{name}-%{version}.tar.xz
