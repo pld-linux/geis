@@ -103,7 +103,7 @@ Narzędzie do przeglądania działania GEIS API.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 sed -i -e 's#-pedantic##g' configure.ac
 
