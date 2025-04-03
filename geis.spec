@@ -13,20 +13,22 @@ Source0:	https://launchpad.net/geis/trunk/%{version}/+download/%{name}-%{version
 # Source0-md5:	2ff9d76a3ea5794516bb02c9d1924faf
 Patch0:		build.patch
 URL:		https://launchpad.net/geis
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.65
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	dbus-devel >= 1.2.16
 BuildRequires:	frame-devel >= 2.2
 BuildRequires:	grail-devel >= 3.0.8
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.2.6b
 BuildRequires:	libxcb-devel >= 1.6
-BuildRequires:	python3-devel
-BuildRequires:	python3-modules
+BuildRequires:	pkgconfig
+BuildRequires:	python3-devel >= 1:3.2
+BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-setuptools > 1:7.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXi-devel >= 1.3
+BuildRequires:	xorg-xserver-server-devel >= 1.10.1
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
