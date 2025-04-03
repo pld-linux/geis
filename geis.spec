@@ -126,6 +126,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
+%{__rm} $RPM_BUILD_ROOT%{py3_sitedir}/_geis_bindings.la
+%if %{with static_libs}
+%{__rm} $RPM_BUILD_ROOT%{py3_sitedir}/_geis_bindings.a
+%endif
+# source data for apidocs
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/geis
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
